@@ -18,12 +18,12 @@ The latter allows you to plug in values that you would have defined here.
              `prepath` to an empty string. Finally, adjust this if you want the
              deployed page to be in a subfolder e.g.: `YourPackage.jl/web/`.
 -->
-@def title       = "18.S191 Introduction to Computational Thinking"
-@def prepath     = "Fall20"
+@def title       = "Introduction to Computational Thinking"
+@def prepath     = "Spring21"
 @def description = """
                    Introduction to Computational thinking. Online course website.
                    """
-@def authors     = "Shashi Gowda"
+@def authors     = "MIT"
 
 <!--  NAVBAR SPECS
   NOTE:
@@ -143,3 +143,15 @@ commands that are defined and used in PkgPage.jl
 
 \newcommand{\blurb}[1]{~~~<p style="font-size: 1.15em; color: #333; line-height:1.5em">~~~#1~~~</p>~~~}
 \newcommand{\youtube}[1]{~~~<iframe width="1020" height="574" src="https://www.youtube.com/embed/~~~#1~~~" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>~~~}
+
+\newcommand{\card}[3]{
+  @@column
+  @@card
+    @@card-container
+      @@title #1 @@
+      @@semester #2 @@
+      @@feedback #3 @@
+    @@
+  @@
+  @@
+}
