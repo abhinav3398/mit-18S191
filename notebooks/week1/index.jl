@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.20
+# v0.12.21
 
 using Markdown
 using InteractiveUtils
@@ -16,7 +16,7 @@ end
 # ╔═╡ 74b008f6-ed6b-11ea-291f-b3791d6d1b35
 begin
 	import Pkg
-	Pkg.activate(mktempdir())
+	Pkg.activate(pwd())
 	Pkg.add(["Images", "ImageMagick", "Colors", "PlutoUI", "HypertextLiteral"])
 
 	using Images
@@ -429,10 +429,7 @@ md"""
 """
 
 # ╔═╡ 63e8d636-ee0b-11ea-173d-bd3327347d55
-function invert(color::AbstractRGB)
-	
-	return missing
-end
+invert(color::AbstractRGB) = RGB(1 - color.r, 1 - color.g, 1 - color.b)
 
 # ╔═╡ 2cc2f84e-ee0d-11ea-373b-e7ad3204bb00
 md"Let's invert some colors:"
@@ -453,7 +450,7 @@ invert(red)
 md"Can you invert the picture of Philip?"
 
 # ╔═╡ 943103e2-ee0b-11ea-33aa-75a8a1529931
-philip_inverted = missing
+philip_inverted = invert.(philip)
 
 # ╔═╡ 2ee543b2-64d6-11eb-3c39-c5660141787e
 md"""
@@ -528,8 +525,10 @@ md"""
 
 # ╔═╡ b6b65b94-edf0-11ea-3686-fbff0ff53d08
 function create_bar()
-	
-	return missing
+	my_vec = zeros(100)
+	mid_pt = length(my_vec) ÷ 2
+	my_vec[(mid_pt-10):(mid_pt+10)] .= 1
+	my_vec
 end
 
 # ╔═╡ 693af19c-64cc-11eb-31f3-57ab2fbae597
@@ -552,6 +551,11 @@ Note that the resulting image doesn't look very good, since we seem to have lost
 #### Exercise
 
 > Think about what we might do to reduce the size of an image without losing so much detail.
+"""
+
+# ╔═╡ dc4de4a0-78b8-11eb-0eee-6fade4bb5614
+md"""
+for every row & column in image, we could remove one pixel that appear consecutively, 3 times, in a row or column. We could repeat this process $n$ number of times, n being the ratio$(1/n)$ by which we want to reduce/shrink the image.
 """
 
 # ╔═╡ 7b04331a-6bcb-11eb-34fa-1f5b151e5510
@@ -729,6 +733,18 @@ md"""
 
 > Make three sliders with variables `r`, `g` and `b`. Then make a single color patch with the RGB color given by those values.
 """
+
+# ╔═╡ 95031760-78df-11eb-3031-791229a94e68
+@bind my_red Slider(1:100, show_value=true)
+
+# ╔═╡ ca459512-78df-11eb-3254-955effed2167
+@bind my_green Slider(1:100, show_value=true)
+
+# ╔═╡ cebd88a0-78df-11eb-3373-f3f2542f65b2
+@bind my_blue Slider(1:100, show_value=true)
+
+# ╔═╡ d2b3c910-78df-11eb-1fc4-b98fd094f930
+RGB(my_red/100, my_green/100, my_blue/100)
 
 # ╔═╡ 576d5e3a-64d8-11eb-10c9-876be31f7830
 md"""
@@ -1245,13 +1261,14 @@ md"_Lecture 1, Spring 2021, version 0_"
 # ╟─6361d102-64cc-11eb-31b7-fb631b632040
 # ╠═ae542fe4-64cc-11eb-29fc-73b7a66314a9
 # ╟─c29292b8-64cc-11eb-28db-b52c46e865e6
+# ╟─dc4de4a0-78b8-11eb-0eee-6fade4bb5614
 # ╟─7b04331a-6bcb-11eb-34fa-1f5b151e5510
 # ╟─5319c03c-64cc-11eb-0743-a1612476e2d3
 # ╠═3db09d92-64cc-11eb-0333-45193c0fd1fe
 # ╟─61606acc-6bcc-11eb-2c80-69ceec9f9702
 # ╟─dd183eca-6018-11eb-2a83-2fcaeea62942
 # ╟─8ddcb286-602a-11eb-3ae0-07d3c77a0f8c
-# ╠═f4b0aa23-2d76-4d88-b2a4-3807e88d27ce
+# ╟─f4b0aa23-2d76-4d88-b2a4-3807e88d27ce
 # ╠═1b2b2b18-64d4-11eb-2d43-e31cb8bc25d1
 # ╟─2b0e6450-64d4-11eb-182b-ff1bd515b56f
 # ╠═3b2b041a-64d4-11eb-31dd-47d7321ee909
@@ -1274,6 +1291,10 @@ md"_Lecture 1, Spring 2021, version 0_"
 # ╟─1c539b02-64d8-11eb-3505-c9288357d139
 # ╟─10f6e6da-64d8-11eb-366f-11f16e73043b
 # ╟─82a8314c-64d8-11eb-1acb-e33625381178
+# ╠═95031760-78df-11eb-3031-791229a94e68
+# ╠═ca459512-78df-11eb-3254-955effed2167
+# ╠═cebd88a0-78df-11eb-3373-f3f2542f65b2
+# ╠═d2b3c910-78df-11eb-1fc4-b98fd094f930
 # ╟─576d5e3a-64d8-11eb-10c9-876be31f7830
 # ╠═2a94a2cf-b697-4b0b-afd0-af2e35af2bb1
 # ╠═3e0ece65-b8a7-4be7-ae44-6d7210c2e15b

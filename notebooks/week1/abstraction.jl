@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.20
+# v0.12.21
 
 using Markdown
 using InteractiveUtils
@@ -16,8 +16,8 @@ end
 # ╔═╡ da1d65a0-ec42-11ea-0141-334c9eeeb035
 begin
 	using Pkg
-	Pkg.activate(mktempdir())
-	Pkg.add(["PlutoUI", "Images", "ImageMagick"])
+	Pkg.activate(pwd())
+	# Pkg.add(["PlutoUI", "Images", "ImageMagick"])
 	using PlutoUI
 	using Images
 end
@@ -86,6 +86,11 @@ The goal of this section is to introduce you to the notion of abstraction. You c
 
 Before we get lost talking about the foundations of number theory, I will present you with a few examples that represent one to me. 
 "
+
+# ╔═╡ b4782a30-78e5-11eb-01c9-a7b584667029
+html"""
+<div notthestyle="position: relative; right: 0; top: 0; z-index: 300;"><iframe src="https://www.youtube.com/embed/uZYVjDDZW9A" width=400 height=250  frameborder="0" allow="accelerometer; autoplay=false; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+"""
 
 # ╔═╡ 6fcac482-70ee-11eb-0b80-ff41c708053b
 md"Each of the items in this list is a specific, or **_specialized_** representation of _one_:
@@ -223,6 +228,7 @@ end
 # ╟─60ae819a-70a7-11eb-31d4-750c7f5dc6ca
 # ╟─792c6a62-ec41-11ea-01f3-73e7eee23cc7
 # ╟─ef1bfa16-70ea-11eb-189c-a54db292cd6f
+# ╟─b4782a30-78e5-11eb-01c9-a7b584667029
 # ╠═0504ac94-70ee-11eb-1c4e-977d9e7d35c9
 # ╟─6fcac482-70ee-11eb-0b80-ff41c708053b
 # ╠═0b1668ba-ec42-11ea-3e50-ed97c5b17ced
