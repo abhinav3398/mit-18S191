@@ -16,16 +16,16 @@ end
 # ╔═╡ 86f770fe-74a1-11eb-01f7-5b3ecf057124
 begin
 	import Pkg
-	Pkg.activate(mktempdir())
-	Pkg.add([
-			Pkg.PackageSpec(name="Images", version="0.22.4"), 
-			Pkg.PackageSpec(name="ImageMagick", version="0.7"), 
-			Pkg.PackageSpec(name="PlutoUI", version="0.7"), 
-			Pkg.PackageSpec(name="Unitful", version="1.6"), 
-			Pkg.PackageSpec(name="ImageFiltering", version="0.6"),
-			Pkg.PackageSpec(name="OffsetArrays", version="1.6"),
-			Pkg.PackageSpec(name="Plots", version="1.10")
-			])
+	Pkg.activate(pwd())
+	# Pkg.add([
+	# 		Pkg.PackageSpec(name="Images", version="0.22.4"), 
+	# 		Pkg.PackageSpec(name="ImageMagick", version="0.7"), 
+	# 		Pkg.PackageSpec(name="PlutoUI", version="0.7"), 
+	# 		Pkg.PackageSpec(name="Unitful", version="1.6"), 
+	# 		Pkg.PackageSpec(name="ImageFiltering", version="0.6"),
+	# 		Pkg.PackageSpec(name="OffsetArrays", version="1.6"),
+	# 		Pkg.PackageSpec(name="Plots", version="1.10")
+	# 		])
 
 	using PlutoUI 
 	using Images
@@ -33,6 +33,7 @@ begin
 	using ImageFiltering
 	using OffsetArrays
 	using Plots
+	using BenchmarkTools
 end
 
 # ╔═╡ febfa62a-74fa-11eb-2fe6-df7de43ef4b6
@@ -185,6 +186,9 @@ md"""
 md"""
 Exercise: Use the nose selection tool from Section 1.1 to pixelate a rectangle of an image.  Warning: you'll have to worry about sizes if not exact multiples.
 """
+
+# ╔═╡ 64e57792-79ba-11eb-19b8-015282abba08
+md"TODO"
 
 # ╔═╡ 339ccfca-74b1-11eb-0c35-774da6b189ed
 md"""
@@ -350,6 +354,13 @@ md"""
 Thought Problem: Why are small kernels better than large kernels from a complexity viewpoint?
 """
 
+# ╔═╡ 20904e00-79bd-11eb-252f-3d4a52ecfdd6
+md"""
+cuz,
+
+$The\ number\ of\ calculations\ \alpha \ Number\ of\ Cells\ in\ the\ kernel\ \alpha \ kernel\ size$
+"""
+
 # ╔═╡ c6e340ee-751e-11eb-3ca7-69595b3693b7
 md"""
 ### Computer Science: Architectures: GPUs or Graphical Processing Units
@@ -510,7 +521,7 @@ html"""
 # ╟─9f1a72da-7532-11eb-079c-b7baccc6614a
 # ╠═86f770fe-74a1-11eb-01f7-5b3ecf057124
 # ╟─4d332c7e-74f8-11eb-1f49-a518246d1db8
-# ╟─f7689472-74a8-11eb-32a1-8379ae5c88e1
+# ╠═f7689472-74a8-11eb-32a1-8379ae5c88e1
 # ╟─0f2f9004-74a8-11eb-01a2-973dbe80f166
 # ╠═962143a8-74a7-11eb-26c3-c10548f326ee
 # ╠═c2964c80-74f8-11eb-3a74-b1bdd9e4ae02
@@ -532,6 +543,7 @@ html"""
 # ╠═9eb917ba-74fb-11eb-0527-15e981ce9c6a
 # ╟─486d3022-74ff-11eb-1865-e15436bd9aad
 # ╟─b9da7332-74ff-11eb-241b-fb87e77d646a
+# ╟─64e57792-79ba-11eb-19b8-015282abba08
 # ╟─339ccfca-74b1-11eb-0c35-774da6b189ed
 # ╟─8711c698-7500-11eb-2505-d35a4de169b4
 # ╟─84350cb8-7501-11eb-095e-8f1a7e015f25
@@ -560,6 +572,7 @@ html"""
 # ╟─4fab4616-74b0-11eb-0088-6b50237d7d54
 # ╟─275bf7ac-74b3-11eb-32c3-cda1e4f1f8c2
 # ╟─537c54e4-74b3-11eb-341f-951b4a1e0b40
+# ╟─20904e00-79bd-11eb-252f-3d4a52ecfdd6
 # ╟─c6e340ee-751e-11eb-3ca7-69595b3693b7
 # ╠═54448d18-7528-11eb-209a-9717affa0d02
 # ╠═acbc563a-7528-11eb-3c38-75a5b66c9241

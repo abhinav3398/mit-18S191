@@ -78,9 +78,6 @@ if det_A != 0
 	invA = inv(A)
 end
 
-# ╔═╡ da25ae80-7a5a-11eb-1ceb-2b29cf767c67
-invA*[LinRange(2, -2, 300)[3], LinRange(-2, 2, 300)[3]]
-
 # ╔═╡ 40655bcc-6d1e-4d1e-9726-41eab98d8472
 img_sources = [
 	"https://user-images.githubusercontent.com/6933510/108605549-fb28e180-73b4-11eb-8520-7e29db0cc965.png" => "Corgis",
@@ -165,7 +162,6 @@ end;
 # ╟─c0c90fec-0e55-4be3-8ea2-88b8705ee258
 # ╟─60532aa0-740c-11eb-0402-af8ff117f042
 # ╠═8e0505be-359b-4459-9de3-f87ec7b60c23
-# ╠═da25ae80-7a5a-11eb-1ceb-2b29cf767c67
 # ╟─35904b8e-7a28-4dbc-bbf9-b45da448452c
 # ╟─f085296d-48b1-4db6-bb87-db863bb54049
 # ╟─d1757b2c-7400-11eb-1406-d937294d5388
